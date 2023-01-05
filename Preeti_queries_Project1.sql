@@ -1,0 +1,34 @@
+/* a */
+SELECT DBA,CONCAT(BUILDING,',',STREET) FROM RESTAURANTS;
+/*c*/
+SELECT CAMIS,DBA,SCORE FROM restaurants WHERE SCORE<90;
+/*d*/
+SELECT B.ZIPCODE, COUNT(*) FROM RESTAURANTS AS R INNER JOIN BORRO AS B ON R.BORRO=B.ID 
+GROUP BY B.ZIPCODE;
+/*e*/
+SELECT Grade, count(grade)
+FROM grade Inner
+JOIN
+Restaurants 
+ON Grade.CAMIS = Restaurants.CAMIS
+Group by grade
+Order By Grade Asc;
+
+/*f*/
+SELECT GRADE,COUNT(GRADE) FROM GRADE INNER JOIN RESTAURANTS on GRADE.CAMIS=RESTAURANTS.CAMIS GROUP BY GRADE
+ORDER BY GRADE;
+/*h*/
+SELECT INSPECTDATE,COUNT(*) FROM restaurantinspection GROUP BY INSPECTDATE;
+/*i*/
+SELECT CAMIS,DBA,COUNT(*) FROM RESTAURANTS INNER JOIN restaurantinspection
+ON restaurants.CAMIS=restaurantinspection.restaurantsID
+ GROUP BY CAMIS ,DBA;
+/*j*/
+SELECT DBA,AVG(SCORE) FROM restaurants INNER JOIN CUISINE ON restaurants.CuisineID=Cuisine.ID
+WHERE CUISINE.DESCRIPTION IN('pizza','Coffee/Tea','ice cream');
+
+
+
+
+
+
